@@ -1,0 +1,10 @@
+l=[1,2,3,5]
+_sum=0
+for i in l:
+    for j in l:
+        for k in l:
+            for m in l:
+                if(i!=j) and (j!=k) and (k!=m) and(i!=k) and (i!=m) and (j!=m):
+                    print(i,j,k,m)
+                    _sum+=1
+print('一共有',_sum,'种排列方式')
