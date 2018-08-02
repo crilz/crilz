@@ -1,0 +1,11 @@
+def fib(n):
+    _sum=0
+    storage=[]
+    storage.append(1)
+    storage.append(1)
+    for i in range(2,n):
+        storage.append(storage[i-2]+storage[i-1])
+    for j in range(0,n):
+        _sum+=storage[j]
+    print(_sum)
+fib(20)
