@@ -1,0 +1,19 @@
+import pandas as pd
+import numpy as np
+import talib as ta
+import warnings
+warnings.filterwarnings('ignore')
+data = pd.read_excel('sz50.xlsx',sheetname=None,index_col='datetime')
+data2 = pd.read_excel('sz50.xlsx',sheetname='600036.XSHG',index_col='datetime')
+data3=data2.iloc[0:,0:1]
+arr=np.array(data3)
+ma10=ta.MA(data2.close.values,10)
+ma=pd.Series(ma10)
+
+import matplotlib.pyplot as plt
+ma=pd.Series(ma10)
+ma.index=data2.close.index
+plt.figure(figsize=(15,7))
+plt.plot(data2.close)
+plt.plot(ma)
+plt.show()
