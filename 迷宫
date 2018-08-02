@@ -1,0 +1,19 @@
+import pandas as pd
+Map=pd.read_csv("map.csv").iloc[:,1:]
+route=[]
+def MG(Map0,x,y,L):
+    Map0.iloc[x,y]=2
+    L.append('(%s,%s)'%(x,y))
+    if(x==15 and y==15):
+        route.append(0)
+    if(x<15 and Map0.iloc[x+1,y]==0):
+        MG(Map0.iloc[:,:],x+1,y,L)
+    if(x>0 and Map0.iloc[x-1,y]==0):
+        MG(Map0.iloc[:,:],x-1,y,L)
+    if(y<15 and Map0.iloc[x,y+1]==0):
+        MG(Map0.iloc[:,:],x,y+1,L)
+    if(y>0 and Map0.iloc[x,y-1]==0):
+        MG(Map0.iloc[:,:],x,y-1,L)
+    Map0.iloc[x,y]=0
+MG(Map,0,0,[])
+print("共有",len(route),'条路径')
