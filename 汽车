@@ -1,0 +1,8 @@
+import numpy as np
+a=[[50,1],[100,-1]]
+a=np.array(a)
+b=[650,800]
+b=np.array(b)
+time_distance=np.linalg.solve(a,b)
+print("甲车跑了",time_distance[0]*100,"米")
+print("乙车跑了",time_distance[0]*50,"米")
